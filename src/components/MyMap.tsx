@@ -15,8 +15,8 @@ function MyMap() {
         }),
       ],
       view: new View({
-        center: [0, 0],
-        zoom: 2,
+        center: [-6900000, -500000],
+        zoom: 4,
       }),
     });
 
@@ -24,7 +24,7 @@ function MyMap() {
       map.setTarget(null);
     };
   }, []);
-  return <div id="map" style={{ width: "100%", height: "400px" }} className={styles.map}/>;
+  return <div id="map" style={{ width: "100%", height: "800px" }} className={styles.map}/>;
 }
 
 export default MyMap;
