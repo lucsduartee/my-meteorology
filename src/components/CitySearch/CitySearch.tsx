@@ -4,8 +4,8 @@ import { CityContext } from '@/contexts/CityProvider';
 const OPEN_WEATHER_BASE_URL = "http://api.openweathermap.org/geo/1.0/direct";
 const OPEN_WEATHER_API_KEY = "ec86d72c6e35f76377e32fda62b0247f";
 const HG_BRASIL_BASE_URL = "https://api.hgbrasil.com/weather";
-const HG_BRASIL_API_KEY = "505c8bec" 
-// https://api.hgbrasil.com/weather?key=SUA-CHAVE&
+const HG_BRASIL_API_KEY = "505c8bec";
+
 export default function CitySearch() {
   const [cityName, setCityName] = useState('');
   const cityContext = useContext(CityContext);
