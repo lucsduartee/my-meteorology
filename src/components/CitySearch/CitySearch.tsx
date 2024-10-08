@@ -14,7 +14,7 @@ export default function CitySearch() {
     event.preventDefault();
 
     const openWeatherResponse = await fetch(`${OPEN_WEATHER_BASE_URL}?q=${cityName}&appid=${OPEN_WEATHER_API_KEY}`);
-    const [city]  = await openWeatherResponse.json();
+    // const [city]  = await openWeatherResponse.json();
     // const { lat, lon } = city;
 
     // const res = await fetch(`${BASE_URL}?q=${cityName}&appid=${OPEN_WEATHER_API_KEY}`); 

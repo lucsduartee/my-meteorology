@@ -15,7 +15,7 @@ function MyMap() {
   * @returns Cleans map on component unmount
   */
   useEffect(() => {
-    const map = new Map({
+    const map: Map = new Map({
       target: "map",
       layers: [
         new TileLayer({

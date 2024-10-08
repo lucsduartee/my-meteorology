@@ -30,7 +30,7 @@ export interface CityProviderProps {
   children: ReactNode;
 }
 
-export const CityContext = createContext<ICityContext | {}>({});
+export const CityContext = createContext<ICityContext | unknown>({});
 
 export default function CityProvider({ children }: CityProviderProps) {
   const [cities, setCities] = useState<Array<ICityContext>>([]);
