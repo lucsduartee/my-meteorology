@@ -1,21 +1,21 @@
 import { useState, createContext, ReactNode } from "react";
 
-type Temperature = {
+export type Temperature = {
   current?: number;
   min: number,
   max: number,
 }
 
-type Weather = {
+export type Weather = {
   city?: string;
   date: string;
   weather: string;
   temperature: Temperature;
-  moonPhase?: string; 
-  rainProbability?: number; 
+  moonPhase?: string;
+  rainProbability?: number;
 }
 
-interface CityContext {
+export interface ICityContext {
   city: {
     name: string;
     lat: number;
@@ -26,18 +26,22 @@ interface CityContext {
   nextWeathers: Array<Weather>
 }
 
-interface CityProviderProps {
+export interface CityProviderProps {
   children: ReactNode;
 }
 
-const CityContext = createContext<CityContext | {}>({});
+export const CityContext = createContext<ICityContext | {}>({});
 
 export default function CityProvider({ children }: CityProviderProps) {
-  const [cityInformation, setCityInformation] = useState<CityContext>();
+  const [cities, setCities] = useState<Array<ICityContext>>([]);
+  const [currentCity, setCurrentCity] = useState<ICityContext>();
 
   return (
-    <CityContext.Provider value={{ cityInformation, setCityInformation }}>
-      {children}
-    </CityContext.Provider>
+    <CityContext.Provider value={{
+      cities,
+      setCities,
+      currentCity,
+      setCurrentCity
+    }}>{children}</CityContext.Provider>
   );
 }
