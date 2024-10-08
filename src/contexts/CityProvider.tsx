@@ -1,4 +1,11 @@
-import { useState, createContext, ReactNode } from "react";
+import {
+  useState,
+  createContext,
+  ReactNode,
+  Dispatch,
+  SetStateAction,
+  useEffect,
+} from "react";
 
 export type Temperature = {
   current?: number;
@@ -15,7 +22,7 @@ export type Weather = {
   rainProbability?: number;
 }
 
-export interface ICityContext {
+export type ICity = {
   city: {
     name: string;
     lat: number;
@@ -26,15 +33,28 @@ export interface ICityContext {
   nextWeathers: Array<Weather>
 }
 
+interface CityContextType {
+  cities: ICity[];
+  currentCity: ICity | undefined;
+  setCities: Dispatch<(SetStateAction<ICity[]>)>;
+  setCurrentCity: Dispatch<SetStateAction<ICity | undefined>>;
+}
+
 export interface CityProviderProps {
   children: ReactNode;
 }
 
-export const CityContext = createContext<ICityContext | unknown>({});
+export const CityContext = createContext<CityContextType | undefined>(undefined);
 
 export default function CityProvider({ children }: CityProviderProps) {
-  const [cities, setCities] = useState<Array<ICityContext>>([]);
-  const [currentCity, setCurrentCity] = useState<ICityContext>();
+  const [cities, setCities] = useState<ICity[]>([]);
+  const [currentCity, setCurrentCity] = useState<ICity | undefined>();
+
+  useEffect(() => {
+    console.log('cities', cities)
+
+    console.log('currentCity', currentCity)
+  }, [cities, currentCity])
 
   return (
     <CityContext.Provider value={{
