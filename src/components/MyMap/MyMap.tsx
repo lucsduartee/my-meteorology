@@ -15,7 +15,8 @@ function MyMap() {
   * @returns Cleans map on component unmount
   */
   useEffect(() => {
-    const map: Map = new Map({
+    /* eslint-disable  @typescript-eslint/no-explicit-any */
+    const map = new Map({
       target: "map",
       layers: [
         new TileLayer({
