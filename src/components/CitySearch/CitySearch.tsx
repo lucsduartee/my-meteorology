@@ -18,7 +18,7 @@ export default function CitySearch() {
     const [city]  = await openWeatherResponse.json();
     const { lat, lon } = city;
 
-    const hgBrasilResponse = await fetch(`${HG_BRASIL_BASE_URL}?key=${HG_BRASIL_API_KEY}&lat=${lat}&lon=${lon}`);
+    const hgBrasilResponse = await fetch(`${HG_BRASIL_BASE_URL}?key=${HG_BRASIL_API_KEY}&lat=${lat}&lon=${lon}`, { mode: 'no-cors' });
     console.log('hgBrasilResponse', hgBrasilResponse);
   }
   return (<form onSubmit={onSubmit}>
