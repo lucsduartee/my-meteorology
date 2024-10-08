@@ -1,20 +1,14 @@
-export default function WheatherInformation() {
+export default function CityWeatherCard() {
   return (
-    <section>
-      <h1>Informações do clima</h1>
-
+    <div>
       <dl>
-        <dt>Cidade: </dt>
         <dt>Data: </dt>
         <dt>Clima: </dt>
         <dt>Temperaturas: </dt>
-        <dd>Atual: </dd>
         <dd>Máxima: </dd>
         <dd>Mínima: </dd>
-        <dt>Fase da lua: </dt>
         <dt>Probabilidade de chuva: </dt>
       </dl>
-      
-    </section>
+    </div>
   );
 }
