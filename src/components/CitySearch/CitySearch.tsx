@@ -19,7 +19,8 @@ export default function CitySearch() {
     const { lat, lon } = city;
 
     const hgBrasilResponse = await fetch(`${HG_BRASIL_BASE_URL}?format=json-cors&key=${HG_BRASIL_API_KEY}&lat=${lat}&lon=${lon}`);
-    console.log('hgBrasilResponse', hgBrasilResponse);
+    const data = await hgBrasilResponse.json();
+    console.log('hgBrasilResponse', data);
   }
   return (<form onSubmit={onSubmit}>
     <label htmlFor="city">Consulte a previsão do tempo em uma cidade</label>
