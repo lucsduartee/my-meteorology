@@ -1,8 +1,0 @@
-.map {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-  grid-row-start: 2;
-  height: 100%;
-  width: 100%;
-}

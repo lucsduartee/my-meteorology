@@ -5,6 +5,12 @@
   width: 90vw;
 }
 
+.wheatherInformation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .footer {
   display: flex;
   margin: 50px auto;
