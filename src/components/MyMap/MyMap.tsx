@@ -3,7 +3,7 @@ import { Map, View } from 'ol';
 import OSM from 'ol/source/OSM';
 import TileLayer from 'ol/layer/Tile';
 
-import styles from '@/styles/MyMap.module.css'
+import styles from './MyMap.module.css'
 
 /** 
  * This components renders Map from OpenLayers
@@ -29,7 +29,7 @@ function MyMap() {
     });
 
     return () => {
-      map.setTarget(null);
+      map.setTarget(null as any);
     };
   }, []);
   return <div id="map" style={{ width: "100%", height: "800px" }} className={styles.map} />;
