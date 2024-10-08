@@ -1,6 +1,7 @@
 import Head from "next/head";
 import styles from "@/styles/Home.module.css";
 import MyMap from "@/components/MyMap";
+import WheatherInformation from "@/components/WeatherInformation";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <div>
         <main className={styles.main}>
           <MyMap />
+          <WheatherInformation />
         </main>
         <footer className={styles.footer}>
           Feito por @lucsduarte

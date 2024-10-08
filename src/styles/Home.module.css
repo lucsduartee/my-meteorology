@@ -5,18 +5,10 @@
   width: 90vw;
 }
 
-.main ol {
-  font-family: var(--font-geist-mono);
-  padding-left: 0;
-  margin: 0;
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: -0.01em;
-  list-style-position: inside;
-}
-
 .footer {
-  grid-row-start: 3;
   display: flex;
-  gap: 24px;
+  margin: 50px auto;
+  justify-content: center;
+  margin-top: 50px;
+  width: 90vw;
 }
