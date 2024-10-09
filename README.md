@@ -1,6 +1,6 @@
 # Easy Weather
 
-**Aplicação em produção**: [https://my-meteorology-ebrr.vercel.app/](https://my-meteorology-ebrr.vercel.app/)
+**Acesse a aplicação em produção**: [https://my-meteorology-ebrr.vercel.app/](https://my-meteorology-ebrr.vercel.app/)
 
 Este projeto é um Desafio técnico proposto para a vaga de desenvolvedor na Geopixel.
 
