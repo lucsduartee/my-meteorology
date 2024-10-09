@@ -44,7 +44,7 @@ Tecnologias utilizadas:
  1. Clone este repositório para sua máquina local:
     ```bash
     git clone https://github.com/lucsduartee/my-meteorology.git
-    cd seu-repositorio
+    cd my-meteorology
     ```
 
  ## Executando a Aplicação
