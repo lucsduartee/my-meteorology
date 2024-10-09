@@ -162,11 +162,11 @@ export default function CitySearch() {
 
   return (<form className={styles.searchInputContainer} onSubmit={onSubmit}>
     <label className={styles.searchInputLabel} htmlFor="city">Consulte a previsão do tempo em uma cidade</label>
-    <input className={styles.searchInput} type="text" id="city" value={cityName} onChange={(e) => setCityName(e.target.value)} />
-    <button className={styles.searchInputButton} type="submit" disabled={hasError}>Consultar</button>
+    <input data-testid="cypress-search-input" className={styles.searchInput} type="text" id="city" value={cityName} onChange={(e) => setCityName(e.target.value)} />
+    <button data-testid="cypress-search-button" className={styles.searchInputButton} type="submit" disabled={hasError}>Consultar</button>
     {
       hasError && (
-        <div className={styles.searchInputSearchError}>
+        <div data-testid="cypress-error-message" className={styles.searchInputSearchError}>
           Ocorreu um erro
         </div>
       )

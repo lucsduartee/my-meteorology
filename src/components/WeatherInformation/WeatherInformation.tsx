@@ -13,7 +13,7 @@ export default function WheatherInformation() {
           <h1 className={styles.weatherInformationTitle}>Informações do clima</h1>
 
           <dl>
-            <dt><span className={styles.weatherInformationItem}>Cidade:</span> {currentCity.city.name}</dt>
+            <dt data-testid="cypress-city-name"><span className={styles.weatherInformationItem}>Cidade:</span> {currentCity.city.name}</dt>
             <dt><span className={styles.weatherInformationItem}>Data:</span> {currentCity.currentWeather.date}</dt>
             <br />
             <dt><span className={styles.weatherInformationItem}>Temperaturas</span> </dt>

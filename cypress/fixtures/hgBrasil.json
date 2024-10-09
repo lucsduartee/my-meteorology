@@ -1,0 +1,44 @@
+{
+  "results": {
+    "temp": 25,
+    "date": "09/10/2024",
+    "condition_code": "29",
+    "description": "Parcialmente nublado",
+    "moon_phase": "waxing_crescent",
+    "condition_slug": "cloud",
+    "forecast": [
+      {
+        "date": "09/10",
+        "max": 36,
+        "min": 15,
+        "rain_probability": 0,
+        "description": "Tempo limpo",
+        "condition": "clear_day"
+      },
+      {
+        "date": "09/10",
+        "max": 36,
+        "min": 15,
+        "rain_probability": 0,
+        "description": "Tempo limpo",
+        "condition": "clear_day"
+      },
+      {
+        "date": "10/10",
+        "max": 25,
+        "min": 18,
+        "rain_probability": 100,
+        "description": "Chuvas esparsas",
+        "condition": "rain"
+      },
+      {
+        "date": "11/10",
+        "max": 33,
+        "min": 18,
+        "rain_probability": 100,
+        "description": "Chuva",
+        "condition": "rain"
+      }
+    ]
+  }
+}
