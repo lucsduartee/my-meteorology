@@ -58,14 +58,14 @@ Tecnologias utilizadas:
 
     Isso irá:
     - Construir as imagens Docker definidas no arquivo `docker-compose.yml`.
-    - Rodar os contêineres para o app Next.js e quaisquer serviços associados (banco de dados, etc.).
+    - Rodar o contêiner para o app Next.js.
 
- 2. Após a construção e inicialização dos contêineres, a aplicação estará disponível no navegador em:
+ 2. Após a construção e inicialização do contêiner, a aplicação estará disponível no navegador em:
     ```
     http://localhost:3000
     ```
 
- ### Executando Localmente (Sem Docker)
+ ### Executando Localmente (Não recomendado)
 
  Caso prefira rodar a aplicação sem Docker:
 
