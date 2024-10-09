@@ -1,40 +1,128 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Easy Weather
 
-## Getting Started
+**Aplicação em produção**: [https://my-meteorology-ebrr.vercel.app/](https://my-meteorology-ebrr.vercel.app/)
 
-First, run the development server:
+Este projeto Desafio técnico proposto para a vaga de desenvolvedor na Geopixel.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+<img src="https://simpleicons.org/icons/docker.svg" alt="Docker" width="40" height="40" style="filter: brightness(0) invert(1);"/>
+<img src="https://simpleicons.org/icons/vercel.svg" alt="Vercel" width="40" height="40" style="filter: brightness(0) invert(1);"/>
+<img src="https://simpleicons.org/icons/nextdotjs.svg" alt="Next.js" width="40" height="40" style="filter: brightness(0) invert(1);"/>
+<img src="https://simpleicons.org/icons/react.svg" alt="React" width="40" height="40" style="filter: brightness(0) invert(1);"/>
+<img src="https://simpleicons.org/icons/typescript.svg" alt="TypeScript" width="40" height="40" style="filter: brightness(0) invert(1);"/>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Tecnologias utilizadas:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- **Docker**: Para criação e gerenciamento de contêineres.
+- **Vercel**: Plataforma de implantação para aplicações frontend.
+- **Next.js**: Framework React para construção de aplicações web.
+- **React**: Biblioteca para construção de interfaces de usuário.
+- **TypeScript**: Superset do JavaScript que adiciona tipagem estática.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+ ## Tabela de Conteúdos
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+ - [Pré-requisitos](#pré-requisitos)
+ - [Instalação](#instalação)
+ - [Executando a Aplicação](#executando-a-aplicação)
+ - [Parando a Aplicação](#parando-a-aplicação)
+ - [Comandos Úteis](#comandos-úteis)
+ - [Estrutura do Projeto](#estrutura-do-projeto)
+---
 
-## Learn More
+ ## Pré-requisitos
 
-To learn more about Next.js, take a look at the following resources:
+ Certifique-se de que você tem as seguintes ferramentas instaladas:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+ - [Docker](https://www.docker.com/get-started)
+ - [Docker Compose](https://docs.docker.com/compose/install/)
+ - [Node.js](https://nodejs.org/) (opcional, caso queira rodar localmente sem Docker)
+ - [Git](https://git-scm.com/)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+ ## Instalação
 
-## Deploy on Vercel
+ 1. Clone este repositório para sua máquina local:
+    ```bash
+    git clone https://github.com/lucsduartee/my-meteorology.git
+    cd seu-repositorio
+    ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+ ## Executando a Aplicação
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+ ### Usando Docker Compose
+
+ 1. Para subir o ambiente de desenvolvimento com Docker Compose, basta rodar o comando:
+    ```bash
+    docker compose up --build
+    ```
+
+    Isso irá:
+    - Construir as imagens Docker definidas no arquivo `docker-compose.yml`.
+    - Rodar os contêineres para o app Next.js e quaisquer serviços associados (banco de dados, etc.).
+
+ 2. Após a construção e inicialização dos contêineres, a aplicação estará disponível no navegador em:
+    ```
+    http://localhost:3000
+    ```
+
+ ### Executando Localmente (Sem Docker)
+
+ Caso prefira rodar a aplicação sem Docker:
+
+ 1. Instale as dependências:
+    ```bash
+    npm install
+    ```
+
+ 2. Inicie o servidor de desenvolvimento:
+    ```bash
+    npm run dev
+    ```
+
+    O servidor estará disponível em `http://localhost:3000`.
+
+###  Parando a Aplicação
+
+ Para parar os contêineres Docker, utilize o comando:
+
+ ```bash
+ docker compose down
+ ```
+
+ Este comando irá encerrar todos os contêineres associados à aplicação.
+
+## Estrutura do Projeto
+
+ ```plaintext
+.
+├── docker-compose.yml
+├── Dockerfile
+├── next.config.mjs
+├── next-env.d.ts
+├── package.json
+├── package-lock.json
+├── public
+│   └── favicon.ico
+├── README.md
+├── src
+│   ├── components
+│   │   ├── CitiesSelect
+│   │   ├── CitySearch
+│   │   ├── CityWeatherCard
+│   │   ├── CityWeatherCarousel
+│   │   ├── Header
+│   │   ├── MyMap
+│   │   └── WeatherInformation
+│   ├── contexts
+│   │   ├── CityProvider.tsx
+│   │   └── GlobalProvider.tsx
+│   ├── pages
+│   │   ├── api
+│   │   ├── _app.tsx
+│   │   ├── _document.tsx
+│   │   ├── fonts
+│   │   └── index.tsx
+│   └── styles
+│       ├── globals.css
+│       └── Home.module.css
+└── tsconfig.json
+ ```
