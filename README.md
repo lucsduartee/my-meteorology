@@ -1,4 +1,4 @@
-# Easy Weather
+# My Meteorology
 
 **Acesse a aplicação em produção**: [https://my-meteorology-ebrr.vercel.app/](https://my-meteorology-ebrr.vercel.app/)
 

@@ -13,7 +13,7 @@ export default function Home() {
   return (<>
     <GlobalProvider>
       <Head>
-        <title>EasyWeather</title>
+        <title>My Meteorology</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests" />
       </Head>
