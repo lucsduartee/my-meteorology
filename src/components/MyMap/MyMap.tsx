@@ -1,7 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
 import { Map, View } from 'ol';
 import OSM from 'ol/source/OSM';
 import TileLayer from 'ol/layer/Tile';
+import { fromLonLat } from "ol/proj";
+
+import { CityContext } from "@/contexts/CityProvider";
 
 import styles from './MyMap.module.css'
 
@@ -9,12 +12,14 @@ import styles from './MyMap.module.css'
  * This components renders Map from OpenLayers
 */
 function MyMap() {
-
+  const cityContext = useContext(CityContext);
+  console.log('cityContext?.currentCity', cityContext?.currentCity)
   /** 
   * Initialize map with Brazil as the center
   * @returns Cleans map on component unmount
   */
   useEffect(() => {
+    console.log()
     /* eslint-disable  @typescript-eslint/no-explicit-any */
     const map = new Map({
       target: "map",
@@ -24,15 +29,19 @@ function MyMap() {
         }),
       ],
       view: new View({
-        center: [-6900000, -500000],
-        zoom: 4,
+        center: cityContext?.currentCity
+        ? fromLonLat([cityContext?.currentCity.city.lon, cityContext?.currentCity.city.lat])
+        : fromLonLat([-51.9253, -14.2350]),
+        zoom: cityContext?.currentCity ? 10 : 4,
       }),
     });
 
     return () => {
       map.setTarget(null as any);
     };
-  }, []);
+  }, [cityContext?.currentCity]);
+
+  useEffect(() => {}, [])
   return <div id="map" style={{ width: "100%", height: "800px" }} className={styles.map} />;
 }
 
