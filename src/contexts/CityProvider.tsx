@@ -4,7 +4,6 @@ import {
   ReactNode,
   Dispatch,
   SetStateAction,
-  useEffect,
 } from "react";
 
 export type Temperature = {
@@ -49,12 +48,6 @@ export const CityContext = createContext<CityContextType | undefined>(undefined)
 export default function CityProvider({ children }: CityProviderProps) {
   const [cities, setCities] = useState<ICity[]>([]);
   const [currentCity, setCurrentCity] = useState<ICity | undefined>();
-
-  useEffect(() => {
-    console.log('cities', cities)
-
-    console.log('currentCity', currentCity)
-  }, [cities, currentCity])
 
   return (
     <CityContext.Provider value={{

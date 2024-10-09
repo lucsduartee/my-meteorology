@@ -29,52 +29,6 @@ export default function CitySearch() {
 
     const [, d1, d2, d3] = weather.forecast;
 
-    console.log('me ajuda', {
-      city: {
-        lat: city.lat,
-        lon: city.lon,
-        name: city.name,
-        state: city.state,
-      },
-      currentWeather: {
-        city: city.name,
-        date: weather.date,
-        weather: weather.description,
-        temperature: {
-          min: weather.forecast[0].min,
-          max: weather.forecast[0].max,
-          current: weather.temp,
-        },
-        moonPhase: weather.moon_phase,
-        rainProbability: weather.forecast[0].rain_probability,
-      },
-      nextWeathers: [{
-        date: d1.date,
-        weather: d1.description,
-        temperature: {
-          min: d1.min,
-          max: d1.max,
-        },
-        rainProbability: d1.rain_probability,
-      }, {
-        date: d2.date,
-        weather: d2.description,
-        temperature: {
-          min: d2.min,
-          max: d2.max,
-        },
-        rainProbability: d2.rain_probability,
-      }, {
-        date: d3.date,
-        weather: d3.description,
-        temperature: {
-          min: d3.min,
-          max: d3.max,
-        },
-        rainProbability: d3.rain_probability,
-      }],
-    })
-
     context?.setCurrentCity(
       {
         city: {
