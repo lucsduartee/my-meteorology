@@ -9,6 +9,8 @@ Este projeto Desafio técnico proposto para a vaga de desenvolvedor na Geopixel.
 <img src="https://simpleicons.org/icons/nextdotjs.svg" alt="Next.js" width="40" height="40" style="filter: brightness(0) invert(1);"/>
 <img src="https://simpleicons.org/icons/react.svg" alt="React" width="40" height="40" style="filter: brightness(0) invert(1);"/>
 <img src="https://simpleicons.org/icons/typescript.svg" alt="TypeScript" width="40" height="40" style="filter: brightness(0) invert(1);"/>
+<img src="https://simpleicons.org/icons/cypress.svg" alt="Cypress" width="40" height="40" style="filter: brightness(0) invert(1);"/>
+
 
 Tecnologias utilizadas:
 
@@ -17,7 +19,7 @@ Tecnologias utilizadas:
 - **Next.js**: Framework React para construção de aplicações web.
 - **React**: Biblioteca para construção de interfaces de usuário.
 - **TypeScript**: Superset do JavaScript que adiciona tipagem estática.
-
+- **Cypress**: Framework de teste e2e automatizados.
 
  ## Tabela de Conteúdos
 
@@ -25,6 +27,7 @@ Tecnologias utilizadas:
  - [Instalação](#instalação)
  - [Executando a Aplicação](#executando-a-aplicação)
  - [Parando a Aplicação](#parando-a-aplicação)
+ - [Testes e2e](#testes-e2e)
  - [Comandos Úteis](#comandos-úteis)
  - [Estrutura do Projeto](#estrutura-do-projeto)
 ---
@@ -48,7 +51,7 @@ Tecnologias utilizadas:
 
  ## Executando a Aplicação
 
- ### Usando Docker Compose
+ ### Usando Docker Compose (Recomendado)
 
  1. Para subir o ambiente de desenvolvimento com Docker Compose, basta rodar o comando:
     ```bash
@@ -90,10 +93,35 @@ Tecnologias utilizadas:
 
  Este comando irá encerrar todos os contêineres associados à aplicação.
 
+## Testes e2e
+Para rodar os testes no Cypress é necessário primeiramente estar com a aplicação rodando seja pelo docker (fortemente recomendado) ou localmente.
+
+Para abrir a interface gráfica do cypress use:
+
+```
+npm run cypress:open
+```
+Ou para roda apenas na CLI:
+
+```
+npm run cypress
+```
+
 ## Estrutura do Projeto
 
  ```plaintext
 .
+├── cypress
+│   ├── downloads
+│   ├── e2e
+│   │   └── spec.cy.ts
+│   ├── fixtures
+│   │   ├── hgBrasil.json
+│   │   └── openWeather.json
+│   └── support
+│       ├── commands.ts
+│       └── e2e.ts
+├── cypress.config.ts
 ├── docker-compose.yml
 ├── Dockerfile
 ├── next.config.mjs
