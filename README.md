@@ -4,13 +4,11 @@
 
 Este projeto Desafio técnico proposto para a vaga de desenvolvedor na Geopixel.
 
-<img src="https://simpleicons.org/icons/docker.svg" alt="Docker" width="40" height="40" style="filter: brightness(0) invert(1);"/>
-<img src="https://simpleicons.org/icons/vercel.svg" alt="Vercel" width="40" height="40" style="filter: brightness(0) invert(1);"/>
-<img src="https://simpleicons.org/icons/nextdotjs.svg" alt="Next.js" width="40" height="40" style="filter: brightness(0) invert(1);"/>
-<img src="https://simpleicons.org/icons/react.svg" alt="React" width="40" height="40" style="filter: brightness(0) invert(1);"/>
-<img src="https://simpleicons.org/icons/typescript.svg" alt="TypeScript" width="40" height="40" style="filter: brightness(0) invert(1);"/>
-<img src="https://simpleicons.org/icons/cypress.svg" alt="Cypress" width="40" height="40" style="filter: brightness(0) invert(1);"/>
-
+<p align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=react,css,typescript,nextjs,cypress,docker,vercel" />
+  </a>
+</p>
 
 Tecnologias utilizadas:
 
