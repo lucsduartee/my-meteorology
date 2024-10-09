@@ -40,7 +40,7 @@ function MyMap() {
     };
   }, [cityContext?.currentCity]);
 
-  return <div id="map" style={{ width: "100%", height: "800px" }} className={styles.map} />;
+  return <div id="map" style={{ width: "100%", height: "850px" }} className={styles.map} />;
 }
 
 export default MyMap;

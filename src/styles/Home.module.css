@@ -5,12 +5,20 @@
 
 .main {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  gap: 32px;
   padding: 0px 24px 24px;
+}
+
+@media (max-width: 600px) {
+  .main {
+    flex-direction: column;
+  }
 }
 
 .wheatherInformation {
   display: flex;
+  flex: 1 0 auto;
   flex-direction: column;
   justify-content: space-between;
   margin-bottom: 28px;
