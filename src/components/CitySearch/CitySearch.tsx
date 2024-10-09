@@ -26,6 +26,7 @@ export default function CitySearch() {
 
     if (context?.cities.find((city: ICity) => city.city.name === cityName)) {
       context.setCurrentCity(context?.cities.find((city: ICity) => city.city.name === cityName));
+      setCityName('');
       return;
     }
 
