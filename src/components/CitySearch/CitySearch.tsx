@@ -1,6 +1,6 @@
 'use client';
 
-import { FormEvent, useState, useContext } from "react";
+import { FormEvent, useState, useContext, useEffect } from "react";
 import { CityContext, ICity } from '@/contexts/CityProvider';
 
 import styles from './CitySearch.module.css'
@@ -12,135 +12,165 @@ const HG_BRASIL_API_KEY = "505c8bec";
 
 export default function CitySearch() {
   const [cityName, setCityName] = useState('');
+  const [hasError, setHasError] = useState(false);
   const context = useContext(CityContext);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setHasError(false);
+    }, 1500);
+  }, [hasError])
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    const openWeatherResponse = await fetch(`${OPEN_WEATHER_BASE_URL}?q=${cityName}&appid=${OPEN_WEATHER_API_KEY}`);
+    if (context?.cities.find((city: ICity) => city.city.name === cityName)) {
+      context.setCurrentCity(context?.cities.find((city: ICity) => city.city.name === cityName));
+      return;
+    }
 
-    const openWeatherData = await openWeatherResponse.json();
+    try {
+      const openWeatherResponse = await fetch(`${OPEN_WEATHER_BASE_URL}?q=${cityName}&appid=${OPEN_WEATHER_API_KEY}`);
 
-    if (openWeatherData.length === 0) return;
+      const openWeatherData = await openWeatherResponse.json();
 
-    const city = openWeatherData[0];
-    const { lat, lon } = city;
+      if (openWeatherData.length === 0) {
+        alert('Cidade não encontrada!');
+        return;
+      };
 
-    const hgBrasilResponse = await fetch(`${HG_BRASIL_BASE_URL}?format=json-cors&key=${HG_BRASIL_API_KEY}&lat=${lat}&lon=${lon}`);
-    const { results: weather } = await hgBrasilResponse.json();
+      const city = openWeatherData[0];
+      const { lat, lon } = city;
 
-    const [, d1, d2, d3] = weather.forecast;
+      const hgBrasilResponse = await fetch(`${HG_BRASIL_BASE_URL}?format=json-cors&key=${HG_BRASIL_API_KEY}&lat=${lat}&lon=${lon}`);
+      const { results: weather } = await hgBrasilResponse.json();
 
-    context?.setCurrentCity(
-      {
-        city: {
-          lat: city.lat,
-          lon: city.lon,
-          name: city.name,
-          state: city.state,
-        },
-        currentWeather: {
-          city: city.name,
-          date: weather.date,
-          weather: weather.description,
-          temperature: {
-            min: weather.forecast[0].min,
-            max: weather.forecast[0].max,
-            current: weather.temp,
-          },
-          condition: weather.condition_slug,
-          moonPhase: weather.moon_phase,
-          rainProbability: weather.forecast[0].rain_probability,
-        },
-        nextWeathers: [{
-          date: d1.date,
-          weather: d1.description,
-          condition: d1.condition,
-          temperature: {
-            min: d1.min,
-            max: d1.max,
-          },
-          rainProbability: d1.rain_probability,
-        }, {
-          date: d2.date,
-          weather: d2.description,
-          condition: d2.condition,
-          temperature: {
-            min: d2.min,
-            max: d2.max,
-          },
-          rainProbability: d2.rain_probability,
-        }, {
-          date: d3.date,
-          weather: d3.description,
-          condition: d3.condition,
-          temperature: {
-            min: d3.min,
-            max: d3.max,
-          },
-          rainProbability: d3.rain_probability,
-        }],
-      }
-    );
+      const [, d1, d2, d3] = weather.forecast;
 
-    context?.setCities((prevState: ICity[]) => [
-      ...prevState,
-      {
-        city: {
-          lat: city.lat,
-          lon: city.lon,
-          name: city.name,
-          state: city.state,
-        },
-        currentWeather: {
-          city: city.name,
-          date: weather.date,
-          weather: weather.description,
-          temperature: {
-            min: weather.forecast[0].min,
-            max: weather.forecast[0].max,
-            current: weather.temp,
+      context?.setCurrentCity(
+        {
+          city: {
+            lat: city.lat,
+            lon: city.lon,
+            name: city.name,
+            state: city.state,
           },
-          condition: weather.condition_slug,
-          moonPhase: weather.moon_phase,
-          rainProbability: weather.forecast[0].rain_probability,
-        },
-        nextWeathers: [{
-          date: d1.date,
-          weather: d1.description,
-          condition: d1.condition,
-          temperature: {
-            min: d1.min,
-            max: d1.max,
+          currentWeather: {
+            city: city.name,
+            date: weather.date,
+            weather: weather.description,
+            temperature: {
+              min: weather.forecast[0].min,
+              max: weather.forecast[0].max,
+              current: weather.temp,
+            },
+            condition: weather.condition_slug,
+            moonPhase: weather.moon_phase,
+            rainProbability: weather.forecast[0].rain_probability,
           },
-          rainProbability: d1.rain_probability,
-        }, {
-          date: d2.date,
-          weather: d2.description,
-          condition: d2.condition,
-          temperature: {
-            min: d2.min,
-            max: d2.max,
+          nextWeathers: [{
+            date: d1.date,
+            weather: d1.description,
+            condition: d1.condition,
+            temperature: {
+              min: d1.min,
+              max: d1.max,
+            },
+            rainProbability: d1.rain_probability,
+          }, {
+            date: d2.date,
+            weather: d2.description,
+            condition: d2.condition,
+            temperature: {
+              min: d2.min,
+              max: d2.max,
+            },
+            rainProbability: d2.rain_probability,
+          }, {
+            date: d3.date,
+            weather: d3.description,
+            condition: d3.condition,
+            temperature: {
+              min: d3.min,
+              max: d3.max,
+            },
+            rainProbability: d3.rain_probability,
+          }],
+        }
+      );
+
+      context?.setCities((prevState: ICity[]) => [
+        ...prevState,
+        {
+          city: {
+            lat: city.lat,
+            lon: city.lon,
+            name: city.name,
+            state: city.state,
           },
-          rainProbability: d2.rain_probability,
-        }, {
-          date: d3.date,
-          weather: d3.description,
-          condition: d3.condition,
-          temperature: {
-            min: d3.min,
-            max: d3.max,
+          currentWeather: {
+            city: city.name,
+            date: weather.date,
+            weather: weather.description,
+            temperature: {
+              min: weather.forecast[0].min,
+              max: weather.forecast[0].max,
+              current: weather.temp,
+            },
+            condition: weather.condition_slug,
+            moonPhase: weather.moon_phase,
+            rainProbability: weather.forecast[0].rain_probability,
           },
-          rainProbability: d3.rain_probability,
-        }],
-      }
-    ])
+          nextWeathers: [{
+            date: d1.date,
+            weather: d1.description,
+            condition: d1.condition,
+            temperature: {
+              min: d1.min,
+              max: d1.max,
+            },
+            rainProbability: d1.rain_probability,
+          }, {
+            date: d2.date,
+            weather: d2.description,
+            condition: d2.condition,
+            temperature: {
+              min: d2.min,
+              max: d2.max,
+            },
+            rainProbability: d2.rain_probability,
+          }, {
+            date: d3.date,
+            weather: d3.description,
+            condition: d3.condition,
+            temperature: {
+              min: d3.min,
+              max: d3.max,
+            },
+            rainProbability: d3.rain_probability,
+          }],
+        }
+      ]);
+
+      setCityName('');
+
+      /* eslint-disable  @typescript-eslint/no-unused-vars */
+    } catch (e) {
+      setHasError(true);
+    }
   }
 
   return (<form className={styles.searchInputContainer} onSubmit={onSubmit}>
     <label className={styles.searchInputLabel} htmlFor="city">Consulte a previsão do tempo em uma cidade</label>
     <input className={styles.searchInput} type="text" id="city" value={cityName} onChange={(e) => setCityName(e.target.value)} />
-    <button className={styles.searchInputButton} type="submit">Consultar</button>
+    <button className={styles.searchInputButton} type="submit" disabled={hasError}>Consultar</button>
+    {
+      hasError && (
+        <div className={styles.searchInputSearchError}>
+          Ocorreu um erro
+        </div>
+      )
+    }
   </form>
   );
 }

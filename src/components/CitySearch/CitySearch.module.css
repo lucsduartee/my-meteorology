@@ -1,6 +1,7 @@
 .searchInputContainer {
   display: flex;
   flex-direction: column;
+  margin-bottom: 28px;
 }
 
 .searchInputLabel {
@@ -21,7 +22,7 @@
 .searchInputButton {
   color:  aliceblue;
   background-color: #333333;
-  margin-bottom: 36px;
+  margin-bottom: 8px;
   font-size: 16px;
   font-weight: 600;
   width: 100%;
@@ -33,4 +34,14 @@
 .searchInputButton:hover {
   background-color: #555555;
   border: 2px solid #555555;
+}
+
+.searchInputSearchError {
+  font-weight: 600;
+  color: #660000;
+  background-color: #ffaaaa;
+  border: 1px solid #ffaaaa;
+  border-radius: 4px;
+  padding: 8px 16px;
+  margin-bottom: 8px;
 }
