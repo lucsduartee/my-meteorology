@@ -2,7 +2,7 @@
 
 **Aplicação em produção**: [https://my-meteorology-ebrr.vercel.app/](https://my-meteorology-ebrr.vercel.app/)
 
-Este projeto Desafio técnico proposto para a vaga de desenvolvedor na Geopixel.
+Este projeto é um Desafio técnico proposto para a vaga de desenvolvedor na Geopixel.
 
 <p align="center">
   <a href="https://skillicons.dev">
