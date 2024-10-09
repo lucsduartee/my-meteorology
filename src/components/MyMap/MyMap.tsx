@@ -8,16 +8,9 @@ import { CityContext } from "@/contexts/CityProvider";
 
 import styles from './MyMap.module.css'
 
-/** 
- * This components renders Map from OpenLayers
-*/
 function MyMap() {
   const cityContext = useContext(CityContext);
 
-  /** 
-  * Initialize map with Brazil as the center
-  * @returns Cleans map on component unmount
-  */
   useEffect(() => {
     /* eslint-disable  @typescript-eslint/no-explicit-any */
     const map = new Map({
@@ -27,6 +20,10 @@ function MyMap() {
           source: new OSM(),
         }),
       ],
+
+      // Verifica se existe uma cidade no estado e caso haja, renderiza o mapa centralizando a cidade
+      // por meio da conversão das coordenadas geograficas de lat e lon para o formato da pojeção padrão
+      // do OpenLayers
       view: new View({
         center: cityContext?.currentCity
         ? fromLonLat([cityContext?.currentCity.city.lon, cityContext?.currentCity.city.lat])

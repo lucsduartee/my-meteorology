@@ -1,6 +1,6 @@
 import { useState, useContext, FormEvent, useEffect } from "react";
 import { CityContext, ICity } from "@/contexts/CityProvider";
-import styles from './CitiesSelect.module.css'
+import styles from './CitiesSelect.module.css';
 
 export default function CitiesSelect() {
   const cityContext = useContext(CityContext);
@@ -13,6 +13,7 @@ export default function CitiesSelect() {
   function handleSelectOnChange(event: FormEvent<HTMLSelectElement>) {
     event.preventDefault();
 
+    // Muda a cidade atualmente exibida para corresponder à pesquisada
     cityContext?.setCurrentCity(cityContext?.cities.find((city: ICity) => city.city.name === event.currentTarget.value));
  
     setCitySelected(event.currentTarget.value);

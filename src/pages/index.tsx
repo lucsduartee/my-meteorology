@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from 'next/link';
 
 import GlobalProvider from "@/contexts/GlobalProvider";
 
@@ -27,7 +28,9 @@ export default function Home() {
           <MyMap />
         </main>
         <footer className={styles.footer}>
-          Feito por @lucsduarte
+          <Link target="_blank" href="https://www.linkedin.com/in/dev-lucasduarte">
+            Feito por @lucasduarte
+          </Link>
         </footer>
       </div>
     </GlobalProvider>

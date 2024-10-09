@@ -5,6 +5,8 @@ import { CityContext, ICity } from '@/contexts/CityProvider';
 
 import styles from './CitySearch.module.css'
 
+// Sei que não é uma boa prática, mas as keys estão aqui apenas para fins avaliativos.
+// O ideal é que essas envs estejam em um arquivo .env
 const OPEN_WEATHER_BASE_URL = "http://api.openweathermap.org/geo/1.0/direct";
 const OPEN_WEATHER_API_KEY = "ec86d72c6e35f76377e32fda62b0247f";
 const HG_BRASIL_BASE_URL = "https://api.hgbrasil.com/weather";
@@ -24,6 +26,8 @@ export default function CitySearch() {
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
+    // Lógica responsável por verificar a existencia de uma cidade no state. Dessa maneira não
+    // precisamos bater na api novamente
     if (context?.cities.find((city: ICity) => city.city.name === cityName)) {
       context.setCurrentCity(context?.cities.find((city: ICity) => city.city.name === cityName));
       setCityName('');
