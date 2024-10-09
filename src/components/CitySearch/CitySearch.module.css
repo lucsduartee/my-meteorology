@@ -1,0 +1,36 @@
+.searchInputContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.searchInputLabel {
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.searchInput {
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  width: 100%;
+  padding: 8px 16px;
+  border: 2px solid #000;
+  border-radius: 4px;
+}
+
+.searchInputButton {
+  color:  aliceblue;
+  background-color: #333333;
+  margin-bottom: 36px;
+  font-size: 16px;
+  font-weight: 600;
+  width: 100%;
+  padding: 8px 16px;
+  border: 2px solid #333333;
+  border-radius: 4px;
+}
+
+.searchInputButton:hover {
+  background-color: #555555;
+  border: 2px solid #555555;
+}

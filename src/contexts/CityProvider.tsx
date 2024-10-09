@@ -17,6 +17,7 @@ export type Weather = {
   date: string;
   weather: string;
   temperature: Temperature;
+  condition: string;
   moonPhase?: string;
   rainProbability?: number;
 }

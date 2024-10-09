@@ -21,7 +21,7 @@ export default function CitiesSelect() {
   return (
     <div className={styles.citiesSelectContainer}>
       <label htmlFor="lang">Cidades pesquisadas recentemente</label>
-      <select name="cities" id="cities" value={citySelected} onChange={handleSelectOnChange}>
+      <select className={styles.citiesSelectInput} name="cities" id="cities" value={citySelected} onChange={handleSelectOnChange}>
         {
           cityContext?.cities.length !== 0 && cityContext?.cities.map((city: ICity, index) => (
             <option key={index} value={city.city.name}>{city.city.name}, {city.city.state}</option>

@@ -1,0 +1,25 @@
+.weatherInformationCard {
+  border-radius: 8px;
+  background-color: #FFFFFF;
+  padding: 12px;
+  border: 1px solid #333333;
+  margin-bottom: 12px;
+}
+
+.weatherInformationTitle {
+  margin-bottom: 8px;
+}
+
+.weatherInformationItem {
+  font-weight: 600;
+}
+
+.weatherInformationIcon {
+  width: 28px;
+}
+
+.weatherInformationWithIcon {
+  align-items: center;
+  display: flex;
+  gap: 4px;
+}

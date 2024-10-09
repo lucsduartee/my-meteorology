@@ -3,6 +3,8 @@
 import { FormEvent, useState, useContext } from "react";
 import { CityContext, ICity } from '@/contexts/CityProvider';
 
+import styles from './CitySearch.module.css'
+
 const OPEN_WEATHER_BASE_URL = "http://api.openweathermap.org/geo/1.0/direct";
 const OPEN_WEATHER_API_KEY = "ec86d72c6e35f76377e32fda62b0247f";
 const HG_BRASIL_BASE_URL = "https://api.hgbrasil.com/weather";
@@ -46,12 +48,14 @@ export default function CitySearch() {
             max: weather.forecast[0].max,
             current: weather.temp,
           },
+          condition: weather.condition_slug,
           moonPhase: weather.moon_phase,
           rainProbability: weather.forecast[0].rain_probability,
         },
         nextWeathers: [{
           date: d1.date,
           weather: d1.description,
+          condition: d1.condition,
           temperature: {
             min: d1.min,
             max: d1.max,
@@ -60,6 +64,7 @@ export default function CitySearch() {
         }, {
           date: d2.date,
           weather: d2.description,
+          condition: d2.condition,
           temperature: {
             min: d2.min,
             max: d2.max,
@@ -68,6 +73,7 @@ export default function CitySearch() {
         }, {
           date: d3.date,
           weather: d3.description,
+          condition: d3.condition,
           temperature: {
             min: d3.min,
             max: d3.max,
@@ -95,12 +101,14 @@ export default function CitySearch() {
             max: weather.forecast[0].max,
             current: weather.temp,
           },
+          condition: weather.condition_slug,
           moonPhase: weather.moon_phase,
           rainProbability: weather.forecast[0].rain_probability,
         },
         nextWeathers: [{
           date: d1.date,
           weather: d1.description,
+          condition: d1.condition,
           temperature: {
             min: d1.min,
             max: d1.max,
@@ -109,6 +117,7 @@ export default function CitySearch() {
         }, {
           date: d2.date,
           weather: d2.description,
+          condition: d2.condition,
           temperature: {
             min: d2.min,
             max: d2.max,
@@ -117,6 +126,7 @@ export default function CitySearch() {
         }, {
           date: d3.date,
           weather: d3.description,
+          condition: d3.condition,
           temperature: {
             min: d3.min,
             max: d3.max,
@@ -127,10 +137,10 @@ export default function CitySearch() {
     ])
   }
 
-  return (<form onSubmit={onSubmit}>
-    <label htmlFor="city">Consulte a previsão do tempo em uma cidade</label>
-    <input type="text" id="city" value={cityName} onChange={(e) => setCityName(e.target.value)} />
-    <button type="submit">Consultar</button>
+  return (<form className={styles.searchInputContainer} onSubmit={onSubmit}>
+    <label className={styles.searchInputLabel} htmlFor="city">Consulte a previsão do tempo em uma cidade</label>
+    <input className={styles.searchInput} type="text" id="city" value={cityName} onChange={(e) => setCityName(e.target.value)} />
+    <button className={styles.searchInputButton} type="submit">Consultar</button>
   </form>
   );
 }

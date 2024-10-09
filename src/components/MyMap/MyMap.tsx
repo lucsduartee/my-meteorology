@@ -13,13 +13,12 @@ import styles from './MyMap.module.css'
 */
 function MyMap() {
   const cityContext = useContext(CityContext);
-  console.log('cityContext?.currentCity', cityContext?.currentCity)
+
   /** 
   * Initialize map with Brazil as the center
   * @returns Cleans map on component unmount
   */
   useEffect(() => {
-    console.log()
     /* eslint-disable  @typescript-eslint/no-explicit-any */
     const map = new Map({
       target: "map",
@@ -41,7 +40,6 @@ function MyMap() {
     };
   }, [cityContext?.currentCity]);
 
-  useEffect(() => {}, [])
   return <div id="map" style={{ width: "100%", height: "800px" }} className={styles.map} />;
 }
 
