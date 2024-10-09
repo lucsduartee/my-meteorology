@@ -26,7 +26,6 @@ Tecnologias utilizadas:
  - [Executando a Aplicação](#executando-a-aplicação)
  - [Parando a Aplicação](#parando-a-aplicação)
  - [Testes e2e](#testes-e2e)
- - [Comandos Úteis](#comandos-úteis)
  - [Estrutura do Projeto](#estrutura-do-projeto)
 ---
 
